@@ -123,12 +123,9 @@ public class ReusablePoolTest {
 		 */
 		reusablePool.releaseReusable(null);
 		try {
-			while (true) {
-				Reusable reusable = reusablePool.acquireReusable();
-				if(reusable == null) {
-					fail("ReusablePool permite introducir elementos nulos");
-				}
-				pool.add(reusable);
+			Reusable reusable = reusablePool.acquireReusable();
+			if(reusable == null) {
+				fail("ReusablePool permite introducir elementos nulos");
 			}
 		} catch (NotFreeInstanceException e) {
 
